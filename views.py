@@ -2,6 +2,7 @@
 
 import sqlite3
 from functools import wraps
+from forms import AddTaskForm
 
 from flask import Flask, flash, redirect, render_template, request, \
     session, url_for, g
