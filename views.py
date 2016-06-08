@@ -83,7 +83,7 @@ def tasks():
 
 
 # Add new tasks
-@app.route('/add/', methods=['POST'])
+@app.route('/add/', methods=['post'])
 @login_required
 def new_task():
     g.db = connect_db()
@@ -103,7 +103,7 @@ def new_task():
                      )
         g.db.commit()
         g.db.close()
-        flash('New entry was successfully posted. Thanks!')
+        flash('New entry posted! Do it, Doug!')
         return redirect(url_for('tasks'))
 
 
@@ -117,7 +117,7 @@ def complete(task_id):
     )
     g.db.commit()
     g.db.close()
-    flash('The task was marked complete.')
+    flash('Task completed! Snoochie boochies!')
     return redirect(url_for('tasks'))
 
 
@@ -129,5 +129,5 @@ def delete_entry(task_id):
     g.db.execute('delete from tasks where task_id=' + str(task_id))
     g.db.commit()
     g.db.close()
-    flash('The task was deleted.')
+    flash('Task deleted ... procrastinator.')
     return redirect(url_for('tasks'))
